@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import {
   ChevronDown,
-  ShoppingCart,
   Menu,
   X,
   Apple,
@@ -13,12 +12,11 @@ import {
   Sofa,
   Home,
 } from 'lucide-react';
-import logo from '../assets/Logo-new.png'; 
+import logo from '../assets/Logo-new.png';
 
 const Navbar = () => {
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-  const [cartTotal] = useState(15.0);
 
   const categories = [
     { name: 'Grocery', icon: Apple },
@@ -56,7 +54,10 @@ const Navbar = () => {
               <div className="hidden lg:block relative">
                 <button
                   onClick={() => setIsDropdownOpen(!isDropdownOpen)}
-                  className="flex items-center space-x-2 text-teal-600 hover:text-teal-700 font-medium px-4 py-2 rounded-md transition-colors"
+                  className="flex items-center space-x-2 text-white font-medium px-6 py-2.5 rounded-md border-2 border-white transition-colors"
+                  style={{ backgroundColor: '#019376' }}
+                  onMouseEnter={(e) => (e.target.style.backgroundColor = '#017a63')}
+                  onMouseLeave={(e) => (e.target.style.backgroundColor = '#019376')}
                 >
                   <Apple className="w-5 h-5" />
                   <span className="text-lg">Grocery</span>
@@ -114,21 +115,10 @@ const Navbar = () => {
 
             {/* Right Section */}
             <div className="flex items-center space-x-4">
-              {/* Cart */}
-              <button
-                className="flex items-center text-white px-4 py-2.5 rounded-md font-medium transition-colors"
-                style={{ backgroundColor: '#019376' }}
-                onMouseEnter={(e) => (e.target.style.backgroundColor = '#017a63')}
-                onMouseLeave={(e) => (e.target.style.backgroundColor = '#019376')}
-              >
-                <ShoppingCart className="w-5 h-5 mr-2" />
-                <span className="text-sm font-semibold">${cartTotal.toFixed(2)}</span>
-              </button>
-
               {/* Join Button */}
               <a
                 href="/join"
-                className="hidden lg:block text-white px-6 py-2.5 rounded-md font-medium transition-colors"
+                className="hidden lg:block text-white px-6 py-2.5 rounded-md font-medium transition-colors border-2 border-white"
                 style={{ backgroundColor: '#019376' }}
                 onMouseEnter={(e) => (e.target.style.backgroundColor = '#017a63')}
                 onMouseLeave={(e) => (e.target.style.backgroundColor = '#019376')}
@@ -136,10 +126,10 @@ const Navbar = () => {
                 Join
               </a>
 
-              {/* Become a Seller Button (UPDATED with Link) */}
+              {/* Become a Seller Button */}
               <Link
                 to="/signup"
-                className="hidden lg:block text-white px-6 py-2.5 rounded-md font-medium transition-colors"
+                className="hidden lg:block text-white px-6 py-2.5 rounded-md font-medium transition-colors border-2 border-white"
                 style={{ backgroundColor: '#019376' }}
                 onMouseEnter={(e) => (e.target.style.backgroundColor = '#017a63')}
                 onMouseLeave={(e) => (e.target.style.backgroundColor = '#019376')}

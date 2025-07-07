@@ -1,5 +1,8 @@
 import React, { useState } from "react";
 import groceryBg from '../assets/Grocery.png';
+import CartItem from '../components/CartItem';
+
+
 import { Search, ShoppingCart, Plus, Minus } from "lucide-react";
 
 
